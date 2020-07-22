@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Card from '../Components/Card';
+import '../Containers/MainContainer.css';
+import Mars from '../Files/Mars.mp4';
 
 const MainContainer = () => {
 
@@ -27,13 +29,18 @@ const MainContainer = () => {
         } else return;
         return (
         <Card sol={setkey} at={item.AT.av} hws={item.HWS.av} pre={item.PRE.av} wd={item.WD.most_common.compass_point} 
-        season={item.Season} firstutc={item.First_UTC} lastutc={item.Last_UTC} />
+        season={item.Season} 
+        lastutc={new Date(item.Last_UTC).toDateString()} />
         );
       });
                         
     return (
-        <div>
+        <div className="maincontainer">
+            <h1>Weather on Mars</h1>
             {teste}
+            <video id="background-video" loop autoPlay muted>
+                <source src={Mars} type="video/mp4" />
+            </video>
         </div>
     );
 };

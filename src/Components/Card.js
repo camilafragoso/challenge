@@ -1,16 +1,16 @@
 import React from 'react';
+import '../Components/Card.css';
 
 const Card = (props)=> {
     return (
-        <div>
-            <p>Sol {props.sol}</p>
+        <div className='transparent'>
+            <p>Sun {props.sol}</p>
             <p>Atmosferic Temperature {props.at}</p>
             <p>Horizontal Wind Speed {props.hws}</p>
             <p>Atmosferic Pressure {props.pre}</p>
             <p>Wind direction {props.wd}</p>
-            <p>Season {props.season}</p>
-            <p>First date {props.firstutc}</p>
-            <p>Last date {props.lastutc}</p>
+            <p>{props.season}</p>
+            <p>{props.lastutc}</p>
         </div>
     );
 };
