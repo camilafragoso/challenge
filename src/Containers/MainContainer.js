@@ -3,6 +3,8 @@ import axios from 'axios';
 import Card from '../Components/Card';
 import '../Containers/MainContainer.css';
 import Mars from '../Files/Mars.mp4';
+import Today from '../Components/Today';
+
 
 const MainContainer = () => {
 
@@ -27,12 +29,15 @@ const MainContainer = () => {
             item = untreatedData[key];
             setkey = key;
         } else return;
-        return (
-        <Card sol={setkey} at={item.AT.av} hws={item.HWS.av} pre={item.PRE.av} wd={item.WD.most_common.compass_point} 
-        season={item.Season} 
-        lastutc={new Date(item.Last_UTC).toDateString()} />
-        );
+        if (key == '587'){
+            return (
+                <Today sun={setkey} at={item.AT.av} hws={item.HWS.av} pre={item.PRE.av} wd={item.WD.most_common.compass_point} 
+                    season={item.Season} firstutc={new Date(item.First_UTC).toDateString()}
+                    lastutc={new Date(item.Last_UTC).toDateString()}/>
+            );
+        } 
       });
+
                         
     return (
         <div className="maincontainer">

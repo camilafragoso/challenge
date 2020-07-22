@@ -1,13 +1,28 @@
 .transparent {
     display: inline-block;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(0,0,0,0.2);
     z-index: 1000;
     width: 10vw;
     height: auto;
     margin: 0 2vw;
     margin-top: 40vh;
+    margin-bottom: 5vh;
   }
 
-p {
-    margin: 0;
+.text {
+  color: rgba(255,255,255,0.4);
+}
+
+.title {
+  color: rgba(255,255,255,0.8);
+}
+
+h4 {
+  margin-bottom: 0;
+  color: wheat;
+}
+
+h3 {
+  margin: 0;
+  color: wheat;
 }
