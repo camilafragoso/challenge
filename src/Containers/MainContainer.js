@@ -4,49 +4,36 @@ import Card from '../Components/Card';
 
 const MainContainer = () => {
 
-    const [data, setData] = useState([]);
-    const [slicedData, setSlicedData] = useState([]);
     const [untreatedData, setUntreatedData] = useState([]);
-
 
     //fetching data from the api and turning into array
     useEffect(()=>{
-        axios.get('https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0')
+        axios.get('https://api.nasa.gov/insight_weather/?api_key=YhxJtNDEWSpSVcOgU76qnsTQG70zWZ2lm4btnK3c&feedtype=json&ver=1.0')
         .then(dataset => {
-            setUntreatedData(dataset.data);
-          let temporary = Object.values(dataset.data);
-          let toArray = temporary.map(function(obj) {
-            return Object.keys(obj).map(function(key) {
-                return obj[key];
-            });
+            //making sure to only set the state when needed
+            if (untreatedData == false){
+                setUntreatedData(dataset.data)
+            }
         });
-        setData(toArray);
-        setSlicedData(data.slice(0, 6));
-        });
-    });
+    });   
 
-    //some data are lost when the object is converted to array, hence this process to retrieve information about the sun
-    
-
-    //creating a constant in order to render the info in the card dinamically
-
-    let info = slicedData.map(data => {
-        let at = data[0].av;
-        let hws = data[2].av;
-        let pre = data[4].av;
-        let firstdate = data[1];
-        let lastdate = data[3];
-        let season = data[5];
-
+    //rendering the data dinamically
+    let item = null; 
+    let setkey = null;
+    let teste = Object.keys(untreatedData).map((key, index) => {
+        if (key.length == 3) {
+            item = untreatedData[key];
+            setkey = key;
+        } else return;
         return (
-            <Card sol={'1'} at={at} hws={hws} pre={pre} wd={'1'} season={season} firstutc={firstdate} lastutc={lastdate} />
-            );
-    });              
-
+        <Card sol={setkey} at={item.AT.av} hws={item.HWS.av} pre={item.PRE.av} wd={item.WD.most_common.compass_point} 
+        season={item.Season} firstutc={item.First_UTC} lastutc={item.Last_UTC} />
+        );
+      });
                         
     return (
         <div>
-            {info}
+            {teste}
         </div>
     );
 };
