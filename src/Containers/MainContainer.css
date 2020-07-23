@@ -11,10 +11,10 @@ h1 {
 #background-video {
     display: flex;
     align-content: stretch;
-    height: 100%;
     width: 100vw;
     top: 0;
     padding: none;
     position: fixed;
     z-index: -1000;
+    object-fit: fill;
 }
