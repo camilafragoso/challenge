@@ -30,7 +30,7 @@ const MainContainer = () => {
 
     if (theKey !== undefined){
         withkey = 
-        <Today sun={theKey} at={untreatedData[theKey].AT.av} hws={(untreatedData[theKey].HWS.av)*(3,6)}
+        <Today sun={theKey} at={untreatedData[theKey].AT.av} hws={((untreatedData[theKey].HWS.av)*(3,6)).toFixed(3)}
         pre={untreatedData[theKey].PRE.av} season={untreatedData[theKey].Season} untreatedData={untreatedData}
         firstutc={new Date(untreatedData[theKey].First_UTC).toDateString()}
         lastutc={new Date(untreatedData[theKey].Last_UTC).toDateString()}
