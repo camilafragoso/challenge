@@ -16,15 +16,15 @@ const Today = (props)=> {
                 </div>
                 <div className="block">
                 <Typography  className="text"gutterbottom>Temperature</Typography>
-               <Typography className="text"variant="h6" className="title">{props.at}</Typography>
+               <Typography className="text"variant="h6" className="title">{props.at} °F</Typography>
                 </div>
                 <div className="block">
                 <Typography className="text"gutterbottom>Horizontal Wind Speed</Typography>
-                <Typography className="text"variant="h6"className="title" >{props.hws}</Typography>
+                <Typography className="text"variant="h6"className="title" >{props.hws} Km/h</Typography>
                 </div>
                 <div className="block">
                 <Typography className="text" gutterbottom>Pressure</Typography>
-                <Typography className="text"variant="h6" className="title">{props.pre}</Typography>
+                <Typography className="text"variant="h6" className="title">{props.pre} Pa</Typography>
                 </div>
                 <div className="block">
                 <Typography className="text" gutterbottom>Wind Direction</Typography>
