@@ -31,4 +31,21 @@
 
 .text {
     width: fit-content;
+    color: rgba(255,255,255,0.4);
+}
+  
+.title {
+    color: rgba(255,255,255,0.8);
+}
+
+.picker {
+    color: rgba(255, 255, 255, 0.5);
+    background-color: black;
+    padding: 5px;
+    border-color: black;
+    font-size: 16px;
+}
+
+.option {
+    padding: 10px;
 }
