@@ -1,3 +1,7 @@
+Application running on https://trusting-sinoussi-e3679c.netlify.app/
+Video of application running https://youtu.be/X5eL8nyk4yk
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
