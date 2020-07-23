@@ -22,13 +22,24 @@ const MainContainer = () => {
         });
     });   
 
+    //getting data from the selector inside of Today.js
     let getData = (key) => {
         setTheKey(key);
     }
 
+    //inicially the most recent sun is displayed (firstsun down below)
+    //however, if a sun is selected, the data changes for that sun's data
     let withkey = null; 
 
     if (theKey !== undefined){
+        
+        //if data is unavailable, replace it with --
+        if (untreatedData[theKey].AT.av == undefined || untreatedData[theKey].HWS.av == undefined || 
+            untreatedData[theKey].PRE.av == undefined || 
+            untreatedData[theKey].Season == undefined || untreatedData[theKey].Last_UTC == undefined){
+                return "--";
+        }
+
         withkey = 
         <Today sun={theKey} at={untreatedData[theKey].AT.av} hws={((untreatedData[theKey].HWS.av)*(3,6)).toFixed(3)}
         pre={untreatedData[theKey].PRE.av} season={untreatedData[theKey].Season} untreatedData={untreatedData}
@@ -44,7 +55,7 @@ const MainContainer = () => {
         }/>;
     }
 
-    //rendering the data dinamically
+    //rendering the most recent sun data dinamically
     let setkey = null;
     let item = null;
 
@@ -56,6 +67,12 @@ const MainContainer = () => {
                 item = untreatedData[key];
                 setkey = key;
             } else return;
+
+            //if data is unavailable, replace it with --
+            if (item.AT.av == undefined || item.HWS.av == undefined || item.PRE.av == undefined || 
+                item.Season == undefined || item.Last_UTC == undefined){
+                    return "--";
+                }
 
             return (
                 <Today sun={setkey} at={item.AT.av} hws={(item.HWS.av)*(3,6)}

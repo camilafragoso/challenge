@@ -5,25 +5,19 @@ import Typography from '@material-ui/core/Typography';
 
 const Today = (props)=> {
 
+    //rendering options for all suns available dinamically
     let options = Object.keys(props.untreatedData).map((key, index) => {
         if (key.length == 3 && index < 7) {
             return (<option value={key}>Sun {key}</option>);
         } else return;
     });
 
-
+    //getting the data from a selected sun and sending it to the parent component
     const handleSelectChange = (sun) => {
-        Object.keys(props.untreatedData).map((key, index) => {
-            if (key.length == 3) {
-                if (sun === key){
-                    props.sendData(key);
-                }
-            } else return;
-        })
+        props.sendData(sun);
     };
 
-
-
+    
     return (
         <div className="all">
             <div className="blockdifferent">
