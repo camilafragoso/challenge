@@ -5,17 +5,10 @@ import Typography from '@material-ui/core/Typography';
 
 const Today = (props)=> {
 
-    const [chosenSun, setChosenSun] = useState();
-
-    let item = null; 
-    let setkey = null;
-
     let options = Object.keys(props.untreatedData).map((key, index) => {
         if (key.length == 3 && index < 7) {
-            item = props.untreatedData[key];
-            setkey = key;
+            return (<option value={key}>Sun {key}</option>);
         } else return;
-    return (<option value={key}>Sun {key}</option>);
     });
 
 
@@ -23,7 +16,6 @@ const Today = (props)=> {
         Object.keys(props.untreatedData).map((key, index) => {
             if (key.length == 3) {
                 if (sun === key){
-                    setChosenSun(key);
                     props.sendData(key);
                 }
             } else return;
